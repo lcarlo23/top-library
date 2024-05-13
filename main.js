@@ -26,17 +26,18 @@ function Book(title, author, pages, read) {
 // Functions
 
 function addBook(e) {
-    e.preventDefault;
+    e.preventDefault();
+
     const title = document.getElementById('title');
     const author = document.getElementById('author');
     const pages = document.getElementById('pages');
-    const read = document.getElementsById('read');
+    const read = document.getElementById('read');
 
     const newBook = new Book(
         title.value,
         author.value,
         pages.value,
-        read[0].checked ? true : false
+        read.checked ? true : false
     );
 
     library.push(newBook);
@@ -111,15 +112,14 @@ const submitModal = document.getElementsByClassName('modal-add')[0];
 const cancelModal = document.getElementsByClassName('modal-cancel')[0];
 
 newBtn.addEventListener('click', (e) => {
-    e.preventDefault;
+    e.preventDefault();
     dialog.showModal();
-    h1.classList.add('modal_title');
 });
 
 submitModal.addEventListener('click', addBook);
 
 cancelModal.addEventListener('click', (e) => {
-    e.preventDefault;
+    e.preventDefault();
     dialog.close();
 });
 
