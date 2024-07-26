@@ -8,6 +8,7 @@ const domRead = document.getElementById('read');
 const cardsDiv = document.getElementById('cards');
 const newBtn = document.getElementById('newBook');
 const dialog = document.getElementsByTagName('dialog')[0];
+const form = document.getElementsByTagName('form')[0];
 const submitModal = document.getElementsByClassName('modal-add')[0];
 const cancelModal = document.getElementsByClassName('modal-cancel')[0];
 
@@ -110,7 +111,11 @@ cancelModal.addEventListener('click', (e) => {
 });
 
 submitModal.addEventListener('click', (e) => {
-    e.preventDefault();
+    if (form.checkValidity()) {
+        e.preventDefault()
+    }  else {
+        return
+    };
 
     const newBook = new Book(
         domTitle.value,
