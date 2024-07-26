@@ -127,9 +127,14 @@ input:focus {
 #cards {
     display: flex;
     gap: 20px;
+    justify-content: center;
+    max-width: 80vw;
+    flex-wrap: wrap;
 }
 
 .card {
+    min-width: 250px;
+    min-height: 300px;
     flex-basis: 275px;
     background-color: white;
     padding: 50px 25px;
