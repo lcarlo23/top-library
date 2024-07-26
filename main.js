@@ -10,7 +10,7 @@ const dialog = document.getElementsByTagName('dialog')[0];
 const submitModal = document.getElementsByClassName('modal-add')[0];
 const cancelModal = document.getElementsByClassName('modal-cancel')[0];
 
-// constructors
+// constructor
 
 class Book {
 
@@ -104,6 +104,11 @@ submitModal.addEventListener('click', (e) => {
     newBook.addBook();
 
     dialog.close();
+
+    domTitle.value = '';
+    domAuthor.value = '';
+    domPages.value = '';
+    domRead.checked = false;
 });
 
 // Listener for card buttons
