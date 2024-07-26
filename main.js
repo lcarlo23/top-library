@@ -1,6 +1,3 @@
-
-
-
 // variables
 const library = [];
 const domTitle = document.getElementById('title');
@@ -58,6 +55,81 @@ class Book {
 
     }
 };
+
+function cardBtns(e) {
+
+    const parent = e.target.parentNode;
+    const dataInd = parent.getAttribute('data-index');
+    const targetClass = e.target.classList;
+
+    if (targetClass.contains('card-delete')) {
+        cardsDiv.removeChild(parent);
+        library.splice(dataInd, 1);
+    };
+    
+    if (targetClass.contains('card-read')) {
+        library[dataInd].read === true ?
+        library[dataInd].read = false :
+        library[dataInd].read = true;
+        e.target.textContent =
+        library[dataInd].read === true ?
+        'READ' : 'NOT READ';
+    };
+
+};
+
+
+// // Listeners
+
+newBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    dialog.showModal();
+});
+
+cancelModal.addEventListener('click', (e) => {
+    e.preventDefault();
+    dialog.close();
+});
+
+submitModal.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    const newBook = new Book(
+        domTitle.value,
+        domAuthor.value,
+        domPages.value,
+        domRead.checked ? true : false
+    );
+
+    newBook.addBook();
+
+    dialog.close();
+});
+
+// Listener for card buttons
+
+cardsDiv.addEventListener('click', cardBtns);
+
+
+// Load initial library
+
+(function () {
+
+    const book1 = new Book('The Hobbit', 'J. R. R. Tolkien', 310, true);
+    const book2 = new Book('The Lord of the Rings', 'J. R. R. Tolkien', 1077, false);
+
+    book1.addBook();
+    book2.addBook();
+
+})();
+
+
+
+
+
+
+
+
 //     createCard() {
         
 //         const card = document.createElement('div');
@@ -155,65 +227,3 @@ class Book {
 // };
 
 // createCard();
-
-function cardBtns(e) {
-
-    const parent = e.target.parentNode;
-    const dataInd = parent.getAttribute('data-index');
-    const targetClass = e.target.classList;
-
-    if (targetClass.contains('card-delete')) {
-        cardsDiv.removeChild(parent);
-        library.splice(dataInd, 1);
-    };
-    
-    if (targetClass.contains('card-read')) {
-        library[dataInd].read === true ?
-        library[dataInd].read = false :
-        library[dataInd].read = true;
-        e.target.textContent =
-        library[dataInd].read === true ?
-        'READ' : 'NOT READ';
-    };
-
-};
-
-
-// // Listeners
-
-newBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    dialog.showModal();
-});
-
-cancelModal.addEventListener('click', (e) => {
-    e.preventDefault();
-    dialog.close();
-});
-
-submitModal.addEventListener('click', () => {
-    const newBook = new Book(
-        domTitle,
-        domAuthor,
-        domPages,
-        domRead.checked ? true : false
-    );
-
-    newBook.addBook();
-});
-
-// Listener for card buttons
-
-cardsDiv.addEventListener('click', cardBtns);
-
-
-// Load initial library
-
-(function () {
-    const book1 = new Book('The Hobbit', 'J. R. R. Tolkien', 310, true);
-    const book2 = new Book('The Lord of the Rings', 'J. R. R. Tolkien', 1077, false);
-
-    book1.addBook();
-    book2.addBook();
-
-})();
