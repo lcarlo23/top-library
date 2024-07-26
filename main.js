@@ -79,7 +79,7 @@ function cardBtns(e) {
 };
 
 
-// // Listeners
+// Listeners
 
 newBtn.addEventListener('click', (e) => {
     e.preventDefault();
@@ -127,108 +127,3 @@ cardsDiv.addEventListener('click', cardBtns);
     book2.addBook();
 
 })();
-
-
-
-
-
-
-
-
-//     createCard() {
-        
-//         const card = document.createElement('div');
-//         const h3 = document.createElement('h3');
-//         const p1 = document.createElement('p');
-//         const p2 = document.createElement('p');
-//         const readBtn = document.createElement('button');
-//         const delBtn = document.createElement('img');
-
-//         h3.textContent = this.title;
-//         p1.textContent = this.author;
-//         p2.textContent = this.pages;
-
-//         card.classList.add('card');
-//         p1.classList.add('author');
-//         p2.classList.add('pages');
-//         readBtn.classList.add('card-read');
-//         readBtn.textContent = book.read === true ? 'READ' : 'NOT READ';
-//         delBtn.classList.add('card-delete');
-//         delBtn.src = './delete.svg';
-//         card.setAttribute('data-index', library.indexOf());
-
-//         card.appendChild(h3);
-//         card.appendChild(p1);
-//         card.appendChild(p2);
-//         card.appendChild(readBtn);
-//         card.appendChild(delBtn);
-        
-//         cardsDiv.appendChild(card);
-//     }
-
-// }
-
-
-// // Functions
-
-// function addBook(e) {
-//     e.preventDefault();
-
-//     const title = document.getElementById('title');
-//     const author = document.getElementById('author');
-//     const pages = document.getElementById('pages');
-//     const read = document.getElementById('read');
-
-//     const newBook = new Book(
-//         title.value,
-//         author.value,
-//         pages.value,
-//         read.checked ? true : false
-//     );
-
-//     library.push(newBook);
-//     newBook.createCard();
-//     dialog.close();
-    
-//     title.value = '';
-//     author.value = '';
-//     pages.value = '';
-//     read.value = '';
-// };
-
-// // Manage cards
-
-// function showCards() {
-//     cardsDiv.innerHTML = '';
-//     for (book of library) {
-//         const card = document.createElement('div');
-//         const h3 = document.createElement('h3');
-//         const p1 = document.createElement('p');
-//         const p2 = document.createElement('p');
-//         const readBtn = document.createElement('button');
-//         const delBtn = document.createElement('img');
-
-//         h3.textContent = book.title;
-//         p1.textContent = book.author;
-//         p2.textContent = book.pages;
-
-//         card.classList.add('card');
-//         p1.classList.add('author');
-//         p2.classList.add('pages');
-//         readBtn.classList.add('card-read');
-//         readBtn.textContent = book.read === true ? 'READ' : 'NOT READ';
-//         delBtn.classList.add('card-delete');
-//         delBtn.src = './delete.svg';
-//         card.setAttribute('data-index', library.indexOf(book));
-
-//         card.appendChild(h3);
-//         card.appendChild(p1);
-//         card.appendChild(p2);
-//         card.appendChild(readBtn);
-//         card.appendChild(delBtn);
-        
-//         cardsDiv.appendChild(card);
-//     }
-// };
-
-// createCard();
