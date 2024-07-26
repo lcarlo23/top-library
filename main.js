@@ -1,4 +1,5 @@
 // variables
+
 const library = [];
 const domTitle = document.getElementById('title');
 const domAuthor = document.getElementById('author');
@@ -10,7 +11,8 @@ const dialog = document.getElementsByTagName('dialog')[0];
 const submitModal = document.getElementsByClassName('modal-add')[0];
 const cancelModal = document.getElementsByClassName('modal-cancel')[0];
 
-// constructor
+
+//  create new book
 
 class Book {
 
@@ -55,6 +57,22 @@ class Book {
 
     }
 };
+
+
+// Load initial library
+
+(function () {
+
+    const book1 = new Book('The Hobbit', 'J. R. R. Tolkien', 310, true);
+    const book2 = new Book('The Lord of the Rings', 'J. R. R. Tolkien', 1077, false);
+
+    book1.addBook();
+    book2.addBook();
+
+})();
+
+
+// function for card interactions
 
 function cardBtns(e) {
 
@@ -111,19 +129,4 @@ submitModal.addEventListener('click', (e) => {
     domRead.checked = false;
 });
 
-// Listener for card buttons
-
 cardsDiv.addEventListener('click', cardBtns);
-
-
-// Load initial library
-
-(function () {
-
-    const book1 = new Book('The Hobbit', 'J. R. R. Tolkien', 310, true);
-    const book2 = new Book('The Lord of the Rings', 'J. R. R. Tolkien', 1077, false);
-
-    book1.addBook();
-    book2.addBook();
-
-})();
