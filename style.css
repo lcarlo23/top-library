@@ -29,6 +29,7 @@ button {
     border-radius: 10px;
     border: 0.1rem solid black;
     font-size: 1.17rem;
+    cursor: pointer;
 }
 
 h3 {
@@ -65,7 +66,7 @@ dialog {
 }
 
 dialog::backdrop {
-  background-color: rgba(255,255,255,0.95);
+    background-color: rgba(255, 255, 255, 0.95);
 }
 
 form {
@@ -92,7 +93,6 @@ input:focus {
     outline: 1px solid black;
 }
 
-
 #read {
     appearance: none;
     width: 1.5rem;
@@ -103,7 +103,7 @@ input:focus {
 }
 
 #read::before {
-    content: "X";
+    content: 'X';
     position: absolute;
     font-size: 1.5em;
     font-weight: 900;
@@ -159,22 +159,24 @@ input:focus {
     margin-bottom: 20px;
 }
 
-.author, .pages {
+.author,
+.pages {
     font-size: 1.17rem;
     font-weight: 500;
 }
 
-.author::before, .pages::before {
+.author::before,
+.pages::before {
     font-weight: 300;
     font-size: 1.17rem;
 }
 
 .author::before {
-    content: "Author: ";
+    content: 'Author: ';
 }
 
 .pages::before {
-    content: "Pages: ";
+    content: 'Pages: ';
 }
 
 .card-delete {
